@@ -1,0 +1,33 @@
+.navbar {
+ text-align: center;
+  background-color: #121212;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content:  flex-end;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  
+  font-family: 'Poppins', sans-serif; /* ← fuente */
+
+}
+
+.navbar-links {
+  display: flex;
+  gap: 70px;
+  
+}
+
+.navbar-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 19px;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #91e0a7;
+}

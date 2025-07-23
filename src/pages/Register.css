@@ -1,9 +1,9 @@
-/* Login.css */
+/* Register.css */
 
-.login-container {
+.register-container {
   background-color: #121212;
   color: #ffffff;
-  max-width: 400px;
+  max-width: 420px;
   margin: 60px auto;
   padding: 35px 25px;
   border-radius: 12px;
@@ -12,30 +12,34 @@
   text-align: center;
 }
 
-.login-container h2 {
+.register-container h2 {
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
-.login-container p {
+.register-container p {
   font-size: 1rem;
   color: #ccc;
   margin-bottom: 20px;
 }
 
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: left;
 }
 
-.login-form label {
+.register-form label {
   font-size: 1rem;
   font-weight: 500;
 }
 
-.login-form input {
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="tel"],
+.register-form input[type="file"] {
   padding: 14px;
   font-size: 1rem;
   background-color: #1e1e1e;
@@ -44,13 +48,19 @@
   color: #fff;
 }
 
-.login-form input:focus {
+.register-form input[type="file"] {
+  padding: 10px;
+  background-color: #1e1e1e;
+  color-scheme: dark;
+}
+
+.register-form input:focus {
   outline: none;
-  border-color: #91e0a7;
+  border-color: #ffffff;
   background-color: #252525;
 }
 
-.login-form button {
+.register-form button {
   padding: 16px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -63,26 +73,22 @@
   box-shadow: 0 2px 6px rgba(240, 221, 68, 0.4);
 }
 
-.login-form button:hover {
- background-color: #73ff00;
+.register-form button:hover {
+  background-color: #73ff00;
   transform: scale(0.95);
 }
 
-.login-footer {
+.register-footer {
   margin-top: 20px;
   font-size: 1rem;
 }
 
-.login-footer a {
-  color: #FFD700;
+.register-footer a {
+  color: #ffe600;
   font-weight: bold;
   text-decoration: none;
 }
 
-.login-footer a:hover {
+.register-footer a:hover {
   text-decoration: underline;
-}
-.OLV{
-  padding-left: 10px;
-  color: #ffffff;
 }

@@ -1,37 +1,34 @@
-// src/pages/Login.jsx
-import React, { useState } from 'react';
-import './Login.css'; // Para estilos, lo crearemos también
+import React from 'react';
+
+import './Login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log('Iniciando sesión con:', email, password);
-    // Aquí iría la lógica de autenticación
-  };
-
   return (
     <div className="login-container">
-      <h2>Iniciar Sesión</h2>
-      <form className="login-form" onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Ingresar</button>
+      <h2>Iniciar sesión</h2>
+      <p>Escribe tu correo y contraseña</p>
+
+      <form className="login-form">
+        <label>Correo</label>
+        <input type="email" placeholder="tucorreo@gmail.com" required />
+
+        <label>Contraseña</label>
+        <input type="password" placeholder="********" required />
+
+        <div className="login-options">
+          <label>
+            <input type="checkbox" />
+            Recordarme
+          </label>
+          <a className='OLV' href="#">¿Olvidaste tu clave?</a>
+        </div>
+
+        <button type="submit">Entrar</button>
       </form>
+
+      <div className="login-footer">
+        ¿No tienes cuenta? <a href="/register">Regístrate</a>
+      </div>
     </div>
   );
 };

@@ -3,23 +3,22 @@ import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { Publication } from './pages/Publication';
 import './App.css';
 
 function App() {
   return (
     <>
       <Navbar />
-       <div className="main-content">
-      <div className="form-container">
-        <div className="form-box login-container">
+     
+     
         <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/publicar" element={<Publication />} />
 
       </Routes>
-      </div>
-    </div>
-      </div>
+      
 
       <Footer />
     </>

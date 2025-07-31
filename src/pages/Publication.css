@@ -1,0 +1,195 @@
+/* Publication.css - Estilos refinados y más amplios para un formulario profesional de reportes de desastres */
+
+:root {
+  --primary-color: #3B5B8A;        /* Azul gris oscuro */
+  --black-color: #000000;           /* Negro puro */
+  --warning-color: #FFD700;         /* Amarillo alerta */
+  --danger-color: #D72638;          /* Rojo controlado */
+  --light-bg: #F9FAFB;              /* Fondo claro neutro */
+  --white: #ffffff;
+  --gray-text: #6c757d;
+  --light-gray: #dee2e6;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--black-color);
+  margin: 0;
+}
+
+.publication-form-container {
+  padding: 4rem 1rem;
+  background: linear-gradient(145deg, var(--primary-color), #2c4a70);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  background-color: var(--white);
+  border-radius: 1.25rem;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
+
+.header-section {
+  padding: 3rem 3rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.page-subtitle {
+  font-size: 1.15rem;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.card-body {
+  padding: 3rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--black-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--light-gray);
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(59, 91, 138, 0.25);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-text {
+  font-size: 0.85rem;
+  color: var(--gray-text);
+  margin-top: 0.4rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.85rem 2rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--warning-color);
+  color: var(--black-color);
+}
+
+.btn-primary:hover {
+  background-color: #e6c200;
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.5);
+}
+
+.btn-secondary {
+  background-color: var(--gray-text);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #555e64;
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--light-gray);
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+input[type="file"] {
+  padding: 0.6rem 1rem;
+}
+
+select {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+  appearance: none;
+  padding-right: 2.75rem;
+}
+
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}

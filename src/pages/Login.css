@@ -75,22 +75,26 @@ body {
   font-size: 16px;
 }
 
-/* Botón */
-.login-form button {
+/* BOTÓN LOGIN & REGISTER ESTILO UNIFICADO */
+.login-form button,
+.register-form button {
   width: 100%;
   padding: 14px;
-  background-color: #ff4d4d;
-  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  background-color: #f8ec3b; /* amarillo pastel suave */
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  transition: background-color 1s ease, transform 0.3s ease;
 }
 
-.login-form button:hover {
-  background-color: #e43f3f;
+.login-form button:hover,
+.register-form button:hover {
+  background-color: #2bd600; /* verde suave */
+  transform: scale(0.97);
 }
 
 /* Checkbox + Olvidaste tu clave */
@@ -104,9 +108,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* Checkbox alineado al texto */
 .remember-me {
-  
   font-size: 17px;
   display: flex;
   align-items: center;
@@ -114,14 +116,12 @@ body {
 }
 
 .remember-me input[type="checkbox"] {
-  
   width: 20px;
   height: 20px;
   accent-color: #ff4d4d;
   cursor: pointer;
 }
 
-/* Enlace olvidaste tu clave */
 .OLV {
   color: white;
   font-size: 17px;

@@ -1,0 +1,149 @@
+.profile-container {
+  background-color: #121212;
+  color: #ffffff;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 35px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.profile-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.profile-container p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.profile-form label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="password"],
+.profile-form input[type="tel"],
+.profile-form select {
+  padding: 14px;
+  font-size: 1rem;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.profile-form input:focus,
+.profile-form select:focus {
+  outline: none;
+  border-color: #ffffff;
+  background-color: #252525;
+}
+
+.profile-form button {
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.1s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(240, 221, 68, 0.4);
+}
+
+.profile-form button:hover {
+  background-color: #73ff00;
+  transform: scale(0.95);
+}
+
+/* Foto */
+.photo-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.photo-preview-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.photo-preview {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #91e0a7;
+}
+
+.photo-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 12px;
+  border: 1px solid #555;
+}
+
+.photo-actions {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+}
+
+.photo-actions div {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.photo-actions svg {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* Avatares */
+.avatar-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.avatar-selector img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.avatar-selector img.selected-avatar {
+  border: 2px solid #FFD700;
+}

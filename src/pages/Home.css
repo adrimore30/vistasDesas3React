@@ -1,0 +1,119 @@
+/* Contenedor general */
+.home-container {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Secciones */
+.section {
+  padding: 200px 80px;
+  text-align: center;
+}
+
+.section.white {
+  background-color: white;
+  color: #111;
+}
+
+.section.black {
+  background-color: #111;
+  color: white;
+}
+
+/* Intro */
+.intro-subtitle {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.intro-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-size: 16px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+/* Botón */
+.btn-project {
+  background-color: black;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-project:hover {
+  background-color: #333;
+}
+
+/* Títulos de sección */
+.section-title {
+  font-size: 24px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Logos de desastres */
+.disaster-logos,
+.entity-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.disaster-item,
+.entity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+}
+
+.disaster-item img,
+.entity-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: #222;
+  padding: 10px;
+}
+
+.disaster-item span,
+.entity-item span {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Adaptabilidad */
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: 22px;
+  }
+
+  .disaster-item img,
+  .entity-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .btn-project {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

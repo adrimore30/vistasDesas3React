@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'; // 👈 ¡IMPORTANTE!
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
-import DisasterView from './pages/DisasterView';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
@@ -19,7 +19,7 @@ function App() {
         <Route path="/perfil" element={<UserProfile />} /> 
 
 
-        <Route path="/" element={<DisasterView />} />
+        <Route path="/" element={<Home />} />
 
       </Routes>
       

@@ -1,0 +1,94 @@
+/* DisasterView.css */
+
+.disaster-view {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7f8;
+}
+
+/* Íconos de desastres naturales */
+.disaster-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 20px 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.disaster-icons img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s;
+}
+.disaster-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Sección del botón */
+.report-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffeaea;
+  color: #b10000;
+}
+
+.report-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Botón 3D */
+.report-button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 6px #cc0000;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.report-button:hover {
+  background-color: #ff1a1a;
+  transform: translateY(-2px);
+}
+
+/* Entidades */
+.entities-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 30px 20px 60px;
+  background-color: #ffffff;
+}
+
+.entities-section img {
+  width: 90px;
+  height: 90px;
+  transition: transform 0.3s;
+}
+.entities-section img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .disaster-icons img,
+  .entities-section img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .report-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}

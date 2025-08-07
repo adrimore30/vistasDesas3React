@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
 import Chat from './pages/Chat';
-import Publication from './pages/Publication';
+import {Publication} from  './pages/Publication';
 import './App.css';
 
 function App() {

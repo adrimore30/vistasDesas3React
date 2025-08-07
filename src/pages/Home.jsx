@@ -1,5 +1,8 @@
 import React from 'react';
 import './Home.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import derrumbe from '../assets/derrumbe.png';
 import incendio from '../assets/incendio.png';
@@ -9,62 +12,198 @@ import bomberos from '../assets/bomberos.jpg';
 import hospital from '../assets/hospital.jpg';
 import defensa from '../assets/defensacivil.jpg';
 
+// Importa las imágenes para el carrusel
+import carrusel1 from '../assets/bomberos.jpg';
+import carrusel2 from '../assets/defensacivil.jpg';
+import carrusel3 from '../assets/defensacivil.jpg';
+import carrusel4 from '../assets/ungrd.png';
+
+// Importa la imagen del código QR/barras
+import qrCode from '../assets/qr-code.png';
+
 const Home = () => {
+  // Configuración del carrusel
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: true,
+    arrows: true,
+    fade: true
+  };
+
+  // Array de imágenes para el carrusel
+  const carouselImages = [
+    { id: 1, src: carrusel1, alt: "Equipos de rescate", caption: "Respuesta inmediata ante emergencias" },
+    { id: 2, src: carrusel2, alt: "Defensa civil", caption: "Coordinación profesional en situaciones críticas" },
+    { id: 3, src: carrusel3, alt: "Ayuda humanitaria", caption: "Asistencia integral para afectados" },
+    { id: 4, src: carrusel4, alt: "Prevención", caption: "Sistema de alertas tempranas" }
+  ];
+
   return (
     <div className="home-container">
-      {/* Sección blanca de bienvenida */}
-      <section className="section white">
-        <p className="intro-subtitle">BIENVENIDOS A DESOFT</p>
-        <h1 className="intro-title">
-          SISTEMA DE INFORMACIÓN PARA LA COMUNICACIÓN DE DESASTRES NATURALES
-        </h1>
-        <p className="intro-text">
-          Sistema digital que centraliza, procesa y difunde información crítica sobre desastres naturales para facilitar una respuesta efectiva.
-        </p>
-        <button className="btn-project">NUESTRO PROYECTO</button>
-      </section>
-
-      {/* Sección negra con logos de desastres */}
-      <section className="section black disaster-section">
-        <h2 className="section-title">TIPOS DE DESASTRES</h2>
-        <div className="disaster-logos">
-          <div className="disaster-item">
-            <img src={derrumbe} alt="Derrumbe" />
-            <span>Derrumbe</span>
+      {/* Hero Section con gradiente de emergencia */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <p className="intro-subtitle">BIENVENIDOS A DESAS3</p>
+          <h1 className="intro-title">
+            SISTEMA INTEGRAL PARA LA GESTIÓN DE DESASTRES NATURALES
+          </h1>
+          <p className="intro-text">
+            Plataforma tecnológica que monitorea, analiza y coordina respuestas ante emergencias naturales, salvando vidas y protegiendo comunidades.
+          </p>
+          <div className="hero-buttons">
+            <button className="btn-emergency">REPORTAR EMERGENCIA</button>
+            <button className="btn-project">CONOCE EL PROYECTO</button>
           </div>
-          <div className="disaster-item">
-            <img src={incendio} alt="Incendio" />
-            <span>Incendio</span>
-          </div>
-          <div className="disaster-item">
-            <img src={tormenta} alt="Tormenta" />
-            <span>Tormenta</span>
-          </div>
-          <div className="disaster-item">
-            <img src={inundacion} alt="Inundación" />
-            <span>Inundación</span>
-          </div>
-        
         </div>
       </section>
 
-      {/* Sección blanca: entidades */}
-      <section className="section white entities-section">
-        <h2 className="section-title">ENTIDADES DE RESPUESTA</h2>
-        <div className="entity-logos">
-          <div className="entity-item">
-            <img src={bomberos} alt="Bomberos" />
-            <span>Bomberos</span>
-          </div>
-          <div className="entity-item">
-            <img src={hospital} alt="Hospital" />
-            <span>Hospital</span>
-          </div>
-          <div className="entity-item">
-            <img src={defensa} alt="Defensa Civil" />
-            <span>Defensa Civil</span>
+      {/* Sección de tipos de desastres */}
+      <section className="disaster-types-section">
+        <div className="section-container">
+          <h2 className="section-title">TIPOS DE DESASTRES QUE MONITOREAMOS</h2>
+          <div className="disaster-logos">
+            <a href="/derrumbe" className="disaster-item">
+              <div className="disaster-image-container">
+                <img src={derrumbe} alt="Derrumbe" className="disaster-image" />
+              </div>
+              <div className="disaster-content">
+                <h3 className="disaster-name">Derrumbe</h3>
+                <p className="disaster-desc">Monitoreo de zonas de riesgo</p>
+              </div>
+            </a>
+            
+            <a href="/incendio" className="disaster-item">
+              <div className="disaster-image-container">
+                <img src={incendio} alt="Incendio" className="disaster-image" />
+              </div>
+              <div className="disaster-content">
+                <h3 className="disaster-name">Incendio</h3>
+                <p className="disaster-desc">Detección temprana de focos</p>
+              </div>
+            </a>
+            
+            <a href="/tormenta" className="disaster-item">
+              <div className="disaster-image-container">
+                <img src={tormenta} alt="Tormenta" className="disaster-image" />
+              </div>
+              <div className="disaster-content">
+                <h3 className="disaster-name">Tormenta</h3>
+                <p className="disaster-desc">Alertas meteorológicas</p>
+              </div>
+            </a>
+            
+            <a href="/inundacion" className="disaster-item">
+              <div className="disaster-image-container">
+                <img src={inundacion} alt="Inundación" className="disaster-image" />
+              </div>
+              <div className="disaster-content">
+                <h3 className="disaster-name">Inundación</h3>
+                <p className="disaster-desc">Niveles de ríos y quebradas</p>
+              </div>
+            </a>
           </div>
         </div>
+      </section>
+
+      {/* Sección de entidades colaboradoras */}
+      <section className="entities-section">
+        <div className="section-container">
+          <h2 className="section-title">COLABORAMOS CON LAS PRINCIPALES ENTIDADES DE RESPUESTA</h2>
+          <div className="entity-logos">
+            <div className="entity-item">
+              <div className="entity-logo-container">
+                <img src={bomberos} alt="Bomberos" className="entity-logo" />
+              </div>
+              <div className="entity-content">
+                <h3 className="entity-name">Cuerpo de Bomberos</h3>
+                <p className="entity-description">Entidad especializada en respuesta a incendios y rescates</p>
+                <a href="/bomberos" className="entity-link">Más información</a>
+              </div>
+            </div>
+            
+            <div className="entity-item">
+              <div className="entity-logo-container">
+                <img src={hospital} alt="Hospital" className="entity-logo" />
+              </div>
+              <div className="entity-content">
+                <h3 className="entity-name">Hospitales Locales</h3>
+                <p className="entity-description">Atención médica de emergencia y primeros auxilios</p>
+                <a href="/hospitales" className="entity-link">Más información</a>
+              </div>
+            </div>
+            
+            <div className="entity-item">
+              <div className="entity-logo-container">
+                <img src={defensa} alt="Defensa Civil" className="entity-logo" />
+              </div>
+              <div className="entity-content">
+                <h3 className="entity-name">Defensa Civil</h3>
+                <p className="entity-description">Coordinación en emergencias y desastres naturales</p>
+                <a href="/defensa-civil" className="entity-link">Más información</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Carrusel de situaciones */}
+      <section className="carousel-section">
+        <h2 className="section-title">NUESTRO SISTEMA EN ACCIÓN</h2>
+        <div className="carousel-container">
+          <Slider {...carouselSettings}>
+            {carouselImages.map((image) => (
+              <div key={image.id} className="carousel-slide">
+                <img src={image.src} alt={image.alt} />
+                <div className="carousel-caption">
+                  <h3>{image.caption}</h3>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </section>
+
+      {/* Sección de descarga de app */}
+      <section className="download-app-section">
+        <div className="section-container download-container">
+          <div className="qr-code-container">
+            <div className="qr-code-card">
+              <img src={qrCode} alt="Código para descargar la app" className="qr-code-image" />
+              <p className="scan-text">ESCANEA Y DESCARGA LA APP</p>
+              <div className="app-badges">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" className="app-badge" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="app-badge" />
+              </div>
+            </div>
+          </div>
+          
+          <div className="download-text">
+            <h2 className="download-title">LLÉVANOS CONTIGO A DONDE VAYAS</h2>
+            <p className="download-description">
+              La aplicación móvil DESAS3 te mantiene informado y protegido con:
+            </p>
+            <ul className="features-list">
+              <li><i className="fas fa-bell"></i> Alertas en tiempo real en tu zona</li>
+              <li><i className="fas fa-map-marked-alt"></i> Mapas interactivos de riesgo</li>
+              <li><i className="fas fa-first-aid"></i> Guías de primeros auxilios</li>
+              <li><i className="fas fa-phone-alt"></i> Contactos de emergencia directos</li>
+              <li><i className="fas fa-exclamation-triangle"></i> Sistema de reporte rápido</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Llamado a la acción final */}
+      <section className="cta-section">
+        <h2>¿LISTO PARA PROTEGERTE Y PROTEGER A LOS TUYOS?</h2>
+        <p>Regístrate ahora y forma parte de nuestra comunidad de prevención</p>
+        <button className="btn-register">REGISTRARME GRATIS</button>
       </section>
     </div>
   );

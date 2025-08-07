@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
 import Chat from './pages/Chat';
+import Publication from './pages/Publication';
 import './App.css';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/perfil" element={<UserProfile />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/chat" element={<Chat />} />      
+        <Route path="/publicar" element={<Publication />} />
         <Route path="/" element={<Home />} />
       </Routes>
 

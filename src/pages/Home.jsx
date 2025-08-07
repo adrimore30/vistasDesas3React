@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import { useNavigate } from 'react-router-dom'; // ✅ Agregado para redirección
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,17 +13,16 @@ import bomberos from '../assets/bomberos.jpg';
 import hospital from '../assets/hospital.jpg';
 import defensa from '../assets/defensacivil.jpg';
 
-// Importa las imágenes para el carrusel
 import carrusel1 from '../assets/bomberos.jpg';
 import carrusel2 from '../assets/defensacivil.jpg';
 import carrusel3 from '../assets/defensacivil.jpg';
 import carrusel4 from '../assets/ungrd.png';
 
-// Importa la imagen del código QR/barras
 import qrCode from '../assets/qr-code.png';
 
 const Home = () => {
-  // Configuración del carrusel
+  const navigate = useNavigate(); //  Inicializamos el hook
+
   const carouselSettings = {
     dots: true,
     infinite: true,
@@ -36,13 +36,17 @@ const Home = () => {
     fade: true
   };
 
-  // Array de imágenes para el carrusel
   const carouselImages = [
     { id: 1, src: carrusel1, alt: "Equipos de rescate", caption: "Respuesta inmediata ante emergencias" },
     { id: 2, src: carrusel2, alt: "Defensa civil", caption: "Coordinación profesional en situaciones críticas" },
     { id: 3, src: carrusel3, alt: "Ayuda humanitaria", caption: "Asistencia integral para afectados" },
     { id: 4, src: carrusel4, alt: "Prevención", caption: "Sistema de alertas tempranas" }
   ];
+
+  // Función que navega al chat con estado de emergencia
+  const handleReportEmergency = () => {
+    navigate("/chat", { state: { chatId: "emergencia" } });
+  };
 
   return (
     <div className="home-container">
@@ -57,7 +61,10 @@ const Home = () => {
             Plataforma tecnológica que monitorea, analiza y coordina respuestas ante emergencias naturales, salvando vidas y protegiendo comunidades.
           </p>
           <div className="hero-buttons">
-            <button className="btn-emergency">REPORTAR EMERGENCIA</button>
+            {/* Botón modificado */}
+            <button className="btn-emergency" onClick={handleReportEmergency}>
+              REPORTAR EMERGENCIA
+            </button>
             <button className="btn-project">CONOCE EL PROYECTO</button>
           </div>
         </div>

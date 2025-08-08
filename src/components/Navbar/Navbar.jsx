@@ -17,7 +17,7 @@ export const Navbar = () => {
         <Link to="/buzon"><FaEnvelope /> Buzón</Link>
         <Link to="/publicar"><FaPlus /> Publicar</Link>
         <Link to="/chat"><FaComments /> Chat</Link>
-        <Link to="/conocenos"><FaUsers /> Conócenos</Link>
+        <Link to="/conocenos"><FaUsers /> Conocenos</Link>
         <Link to="/perfil"><FaUserCircle /> Perfil</Link> 
         <Link to="/login"><FaSignInAlt /> Inicio de sesión</Link>
 

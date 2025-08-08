@@ -1,0 +1,211 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Sección Hero */
+.hero-section {
+    background: linear-gradient(135deg, #3B5B8A 0%, #000000 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+/* Botones */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    background-color: #f8ec3b; /* amarillo pastel suave */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2bd600; /* verde suave */
+    transform: scale(0.97);
+}
+
+/* Sección "Quiénes Somos" */
+.quienes-somos-section {
+    padding: 80px 0;
+    background-color: #F9FAFB;
+    text-align: center;
+}
+
+.quienes-somos-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.quienes-somos-section .lead {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Tarjetas */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* Sección Misión y Visión */
+.philosophy-section {
+    padding: 80px 0;
+    background-color: #000;
+    color: white;
+}
+
+.philosophy-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.philosophy-section .lead {
+    font-size: 1.2rem;
+}
+
+/* Sección Equipo */
+.team-section {
+    padding: 80px 0;
+    background-color: #F9FAFB;
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.team-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.team-image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.team-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-overlay {
+    opacity: 1;
+}
+
+.team-overlay .btn {
+    background-color: white;
+    color: #3B5B8A;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.team-overlay .btn:hover {
+    background-color: #FFD700;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .quienes-somos-section h2,
+    .philosophy-section h2,
+    .team-section h2,
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .btn-primary,
+    .btn-light {
+        width: 100%;
+    }
+
+    .team-card {
+        flex: 1 1 100%; /* Para que ocupen el 100% en pantallas pequeñas */
+    }
+}
+
+@media (min-width: 769px) {
+    .team-card {
+        flex: 1 1 calc(20% - 20px); /* Para que quepan 5 en fila */
+        margin: 10px; /* Espaciado entre tarjetas */
+    }
+}

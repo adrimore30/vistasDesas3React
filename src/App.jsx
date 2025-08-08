@@ -9,6 +9,7 @@ import UserProfile from './pages/UserProfile';
 import Chat from './pages/Chat';
 import {Publication} from  './pages/Publication';
 import './App.css';
+import Conocenos from './pages/Conocenos';
 
 function App() {
   const location = useLocation();
@@ -22,10 +23,19 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
         <Route path="/perfil" element={<UserProfile />} />
         <Route path="/chat" element={<Chat />} />      
         <Route path="/publicar" element={<Publication />} />
         <Route path="/" element={<Home />} />
+
+
+        <Route path="/perfil" element={<UserProfile />} /> 
+
+
+        <Route path="/" element={<DisasterView />} />
+        <Route path="/conocenos" element={<Conocenos />} /> 
+
       </Routes>
 
       {/* Mostrar Footer solo si no es la vista de chat */}

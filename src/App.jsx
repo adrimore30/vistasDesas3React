@@ -33,7 +33,7 @@ function App() {
         <Route path="/perfil" element={<UserProfile />} /> 
 
 
-        <Route path="/" element={<DisasterView />} />
+        <Route path="/" element={<Home />} />
         <Route path="/conocenos" element={<Conocenos />} /> 
 
       </Routes>

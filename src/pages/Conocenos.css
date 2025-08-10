@@ -1,148 +1,217 @@
-/* Estilos generales */
+/* ===========================
+   Variables y Estilos Globales
+=========================== */
+:root {
+    --primary-color: #3B5B8A;
+    --primary-dark: #000000;
+    --secondary-color: #f8ec3b;
+    --secondary-hover: #2bd600;
+    --light-bg: #F9FAFB;
+    --card-bg: #ffffff;
+    --text-dark: #333;
+    --text-light: #fff;
+    --muted-text: #555;
+    --card-radius: 12px;
+    --transition-fast: 0.3s ease;
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Sección Hero */
+/* ===========================
+   Hero Section
+=========================== */
 .hero-section {
-    background: linear-gradient(135deg, #3B5B8A 0%, #000000 100%);
-    color: white;
-    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--text-light);
+    padding: 60px 0;
     text-align: center;
 }
 
 .hero-section img {
-    max-width: 100%;
+    max-width: 85%;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-soft);
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero-section .lead {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
 }
 
-/* Botones */
+/* ===========================
+   Botones
+=========================== */
 .btn-primary {
-    width: 100%;
-    padding: 14px;
-    font-size: 17px;
+    width: auto;
+    padding: 12px 18px;
+    font-size: 16px;
     font-weight: bold;
     color: black;
-    background-color: #f8ec3b; /* amarillo pastel suave */
+    background-color: var(--secondary-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: var(--shadow-soft);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .btn-primary:hover {
-    background-color: #2bd600; /* verde suave */
-    transform: scale(0.97);
+    background-color: var(--secondary-hover);
+    transform: scale(0.98);
 }
 
-/* Sección "Quiénes Somos" */
+/* ===========================
+   Quiénes Somos
+=========================== */
 .quienes-somos-section {
-    padding: 80px 0;
-    background-color: #F9FAFB;
+    padding: 60px 0;
+    background-color: var(--light-bg);
     text-align: center;
 }
 
 .quienes-somos-section h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .quienes-somos-section .lead {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.1rem;
+    color: var(--muted-text);
 }
 
-/* Tarjetas */
+/* Imagen siempre centrada */
+.quienes-somos-section .col-lg-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quienes-somos-section .col-lg-5 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===========================
+   Cards
+=========================== */
 .card {
-    border: none;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    max-width: 300px; /* Reducimos tamaño */
+    margin: auto;
+    text-align: center;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted-text);
+    font-size: 0.95rem;
 }
 
 .icon-circle {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
 }
 
-/* Sección Misión y Visión */
+/* ===========================
+   Misión y Visión
+=========================== */
 .philosophy-section {
-    padding: 80px 0;
-    background-color: #000;
-    color: white;
+    padding: 60px 0;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    text-align: center;
 }
 
 .philosophy-section h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
 }
 
 .philosophy-section .lead {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
 }
 
-/* Sección Equipo */
+/* ===========================
+   Equipo
+=========================== */
 .team-section {
-    padding: 80px 0;
-    background-color: #F9FAFB;
+    padding: 60px 0;
+    background-color: var(--light-bg);
 }
 
 .team-section h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .team-card {
-    border: none;
-    border-radius: 15px;
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
     overflow: hidden;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 250px; /* Cards más pequeñas */
+    margin: auto;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .team-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .team-image-container img {
     width: 100%;
     height: auto;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-fast);
 }
 
 .team-image-container:hover img {
@@ -151,16 +220,13 @@ body {
 
 .team-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-fast);
 }
 
 .team-card:hover .team-overlay {
@@ -168,44 +234,40 @@ body {
 }
 
 .team-overlay .btn {
-    background-color: white;
-    color: #3B5B8A;
+    background-color: var(--text-light);
+    color: var(--primary-color);
     border-radius: 50%;
-    padding: 10px;
+    padding: 8px;
     margin: 0 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-fast);
 }
 
 .team-overlay .btn:hover {
     background-color: #FFD700;
 }
 
-/* Responsividad */
+/* ===========================
+   Responsividad
+=========================== */
 @media (max-width: 768px) {
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .card, .team-card {
+        max-width: 90%;
     }
 
     .quienes-somos-section h2,
     .philosophy-section h2,
-    .team-section h2,
-    .cta-section h2 {
-        font-size: 2rem;
-    }
-
-    .btn-primary,
-    .btn-light {
-        width: 100%;
-    }
-
-    .team-card {
-        flex: 1 1 100%; /* Para que ocupen el 100% en pantallas pequeñas */
+    .team-section h2 {
+        font-size: 1.8rem;
     }
 }
 
 @media (min-width: 769px) {
     .team-card {
-        flex: 1 1 calc(20% - 20px); /* Para que quepan 5 en fila */
-        margin: 10px; /* Espaciado entre tarjetas */
+        flex: 1 1 calc(25% - 20px);
+        margin: 10px;
     }
 }

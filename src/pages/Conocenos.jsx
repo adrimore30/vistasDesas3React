@@ -26,10 +26,9 @@ const Conocenos = () => {
                                 En KodeLAMD, somos un equipo de cinco jóvenes innovadores que han unido fuerzas para revolucionar el mundo del desarrollo de software.
                                 Nuestra pasión por la tecnología nos impulsa a crear soluciones digitales a medida que no solo cumplen, sino que superan las expectativas.
                             </p>
-                            <a href="#quienes-somos" className="btn btn-primary btn-lg mt-3">
-                                Descubre más
-                                <i className="fas fa-arrow-right ms-2"></i>
-                            </a>
+                          
+
+
                         </div>
                     </div>
                 </div>

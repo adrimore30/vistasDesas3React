@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'; // ✅ Agregado para redirecció
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Link } from "react-router-dom";
 
 import derrumbe from '../assets/derrumbe.png';
 import incendio from '../assets/incendio.png';
@@ -72,51 +73,57 @@ const Home = () => {
 
       {/* Sección de tipos de desastres */}
       <section className="disaster-types-section">
-        <div className="section-container">
-          <h2 className="section-title">TIPOS DE DESASTRES QUE MONITOREAMOS</h2>
-          <div className="disaster-logos">
-            <a href="/derrumbe" className="disaster-item">
-              <div className="disaster-image-container">
-                <img src={derrumbe} alt="Derrumbe" className="disaster-image" />
-              </div>
-              <div className="disaster-content">
-                <h3 className="disaster-name">Derrumbe</h3>
-                <p className="disaster-desc">Monitoreo de zonas de riesgo</p>
-              </div>
-            </a>
-            
-            <a href="/incendio" className="disaster-item">
-              <div className="disaster-image-container">
-                <img src={incendio} alt="Incendio" className="disaster-image" />
-              </div>
-              <div className="disaster-content">
-                <h3 className="disaster-name">Incendio</h3>
-                <p className="disaster-desc">Detección temprana de focos</p>
-              </div>
-            </a>
-            
-            <a href="/tormenta" className="disaster-item">
-              <div className="disaster-image-container">
-                <img src={tormenta} alt="Tormenta" className="disaster-image" />
-              </div>
-              <div className="disaster-content">
-                <h3 className="disaster-name">Tormenta</h3>
-                <p className="disaster-desc">Alertas meteorológicas</p>
-              </div>
-            </a>
-            
-            <a href="/inundacion" className="disaster-item">
-              <div className="disaster-image-container">
-                <img src={inundacion} alt="Inundación" className="disaster-image" />
-              </div>
-              <div className="disaster-content">
-                <h3 className="disaster-name">Inundación</h3>
-                <p className="disaster-desc">Niveles de ríos y quebradas</p>
-              </div>
-            </a>
-          </div>
+  <div className="section-container">
+    <h2 className="section-title">TIPOS DE DESASTRES QUE MONITOREAMOS</h2>
+    <div className="disaster-logos">
+      
+      {/* Derrumbe → Defensa Civil */}
+      <Link to="/chat?chat=defensa-civil" className="disaster-item">
+        <div className="disaster-image-container">
+          <img src={derrumbe} alt="Derrumbe" className="disaster-image" />
         </div>
-      </section>
+        <div className="disaster-content">
+          <h3 className="disaster-name">Derrumbe</h3>
+          <p className="disaster-desc">Monitoreo de zonas de riesgo</p>
+        </div>
+      </Link>
+
+      {/* Incendio → Bomberos */}
+      <Link to="/chat?chat=bomberos" className="disaster-item">
+        <div className="disaster-image-container">
+          <img src={incendio} alt="Incendio" className="disaster-image" />
+        </div>
+        <div className="disaster-content">
+          <h3 className="disaster-name">Incendio</h3>
+          <p className="disaster-desc">Detección temprana de focos</p>
+        </div>
+      </Link>
+
+      {/* Tormenta → Defensa Civil */}
+      <Link to="/chat?chat=defensa-civil" className="disaster-item">
+        <div className="disaster-image-container">
+          <img src={tormenta} alt="Tormenta" className="disaster-image" />
+        </div>
+        <div className="disaster-content">
+          <h3 className="disaster-name">Tormenta</h3>
+          <p className="disaster-desc">Alertas meteorológicas</p>
+        </div>
+      </Link>
+
+      {/* Inundación → UDGR y también UNGR */}
+      <Link to="/chat?chat=udgr" className="disaster-item">
+        <div className="disaster-image-container">
+          <img src={inundacion} alt="Inundación" className="disaster-image" />
+        </div>
+        <div className="disaster-content">
+          <h3 className="disaster-name">Inundación</h3>
+          <p className="disaster-desc">Niveles de ríos y quebradas</p>
+        </div>
+      </Link>
+
+    </div>
+  </div>
+</section>
 
       {/* Sección de entidades colaboradoras */}
       <section className="entities-section">

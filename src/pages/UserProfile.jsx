@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useEffect, useState, useRef } from 'react';
 import './UserProfile.css';
-import { FaCamera, FaImage, FaTrash, FaUserCircle } from 'react-icons/fa';
+import { FaCamera, FaImage, FaTrash, FaUser, FaCheckCircle } from 'react-icons/fa';
+
+const videos = [
+  '/videos/derrumbe.mp4',
+  '/videos/incendio.mp4',
+  '/videos/tormenta.mp4'
+];
 
 const veredasDisponibles = [
   'Vereda San Rafael', 'Vereda San Diego', 'Vereda El Triunfo', 'Vereda La Primavera',
@@ -26,7 +33,20 @@ const UserProfile = () => {
   });
 
   const [preview, setPreview] = useState(null);
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [editable, setEditable] = useState(false);
 
+  const fileInputRef = useRef(null);
+
+  /* Fondo con cambio de video */
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentVideo(v => (v + 1) % videos.length), 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  /* Datos mock */
   useEffect(() => {
     const mockData = {
       nombre: 'Elynn',
@@ -40,111 +60,121 @@ const UserProfile = () => {
     setUserData(mockData);
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
+    setUserData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = e => {
     const file = e.target.files[0];
     if (file) {
-      const previewURL = URL.createObjectURL(file);
-      setPreview(previewURL);
-      setUserData({ ...userData, foto: file });
+      const url = URL.createObjectURL(file);
+      setPreview(url);
+      setUserData(prev => ({ ...prev, foto: file }));
     }
   };
 
   const handleRemovePhoto = () => {
     setPreview(null);
-    setUserData({ ...userData, foto: null });
+    setUserData(prev => ({ ...prev, foto: null }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    setShowConfirm(false);
     console.log('Datos guardados:', userData);
-    // Aquí puedes enviar los datos al servidor con fetch o axios
+    setSaved(true);
+    setEditable(false);
+    setTimeout(() => setSaved(false), 3000);
+  };
+
+  const enableEdit = () => {
+    setEditable(true);
   };
 
   return (
-    <div className="profile-page-background">
+    <div className="video-profile-wrapper">
+      <video key={currentVideo} autoPlay loop muted className="background-video">
+        <source src={videos[currentVideo]} type="video/mp4" />
+        Tu navegador no soporta el video.
+      </video>
+
+      {/* Modal de confirmación */}
+      {showConfirm && (
+        <div className="modal-overlay" onClick={() => setShowConfirm(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <h3>¿Estás seguro de guardar los cambios?</h3>
+            <div className="modal-buttons">
+              <button className="btn-confirm" onClick={handleSubmit}>Sí, guardar</button>
+              <button className="btn-cancel" onClick={() => setShowConfirm(false)}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mensaje de éxito */}
+      {saved && (
+        <div className="toast-success">
+          <FaCheckCircle /> Cambios guardados
+        </div>
+      )}
+
       <div className="profile-container">
         <h2>Perfil de Usuario</h2>
         <p>Administra tu información personal</p>
 
-        <form className="profile-form" onSubmit={handleSubmit}>
+        <form className="profile-form" onSubmit={e => e.preventDefault()}>
           <label>Nombre</label>
-          <input type="text" name="nombre" value={userData.nombre} onChange={handleChange} />
+          <input type="text" name="nombre" value={userData.nombre} onChange={handleChange} disabled={!editable} />
 
           <label>Apellido</label>
-          <input type="text" name="apellido" value={userData.apellido} onChange={handleChange} />
+          <input type="text" name="apellido" value={userData.apellido} onChange={handleChange} disabled={!editable} />
 
           <label>Correo</label>
           <input type="email" name="email" value={userData.email} disabled />
 
           <label>Teléfono</label>
-          <input type="tel" name="telefono" value={userData.telefono} onChange={handleChange} />
+          <input type="tel" name="telefono" value={userData.telefono} onChange={handleChange} disabled={!editable} />
 
           <label>Dirección</label>
-          <input type="text" name="direccion" value={userData.direccion} onChange={handleChange} />
+          <input type="text" name="direccion" value={userData.direccion} onChange={handleChange} disabled={!editable} />
 
           <label>Vereda</label>
-          <select name="vereda" value={userData.vereda} onChange={handleChange}>
+          <select name="vereda" value={userData.vereda} onChange={handleChange} disabled={!editable}>
             <option value="">Selecciona una vereda</option>
-            {veredasDisponibles.map((vereda, index) => (
-              <option key={index} value={vereda}>{vereda}</option>
-            ))}
+            {veredasDisponibles.map(v => <option key={v} value={v}>{v}</option>)}
           </select>
 
           <label>Contraseña</label>
-          <input type="password" name="password" placeholder="******" onChange={handleChange} />
+          <input type="password" name="password" placeholder="******" onChange={handleChange} disabled={!editable} />
 
-          <label>Foto</label>
+          {/* FOTO */}
+          <label>Foto de perfil</label>
           <div className="photo-section">
-            <div className="photo-preview-block">
-              {preview ? (
-                <img src={preview} alt="Foto perfil" className="photo-preview" />
-              ) : (
-                <div className="photo-placeholder"><FaUserCircle size={50} /></div>
-              )}
-              <p>Editar</p>
+            <div className="circle-image" onClick={() => editable && fileInputRef.current?.click()}>
+              {preview ? <img src={preview} alt="perfil" /> : <FaUser className="default-user-icon" />}
             </div>
 
             <div className="photo-actions">
-              <div onClick={() => document.getElementById('cameraInput').click()}>
-                <FaCamera />
-                <p>Cámara</p>
+              <div onClick={() => editable && document.getElementById('cameraInput').click()}>
+                <FaCamera /><span>Cámara</span>
               </div>
-
-              <div onClick={() => document.getElementById('galleryInput').click()}>
-                <FaImage />
-                <p>Galería</p>
+              <div onClick={() => editable && document.getElementById('galleryInput').click()}>
+                <FaImage /><span>Galería</span>
               </div>
-
-              <div onClick={handleRemovePhoto}>
-                <FaTrash />
-                <p>Eliminar</p>
+              <div onClick={() => editable && handleRemovePhoto()}>
+                <FaTrash /><span>Eliminar</span>
               </div>
             </div>
 
-            {/* Inputs ocultos */}
-            <input
-              type="file"
-              id="cameraInput"
-              accept="image/*"
-              capture="environment"
-              style={{ display: 'none' }}
-              onChange={handleImageChange}
-            />
-            <input
-              type="file"
-              id="galleryInput"
-              accept="image/*"
-              style={{ display: 'none' }}
-              onChange={handleImageChange}
-            />
+            <input type="file" id="cameraInput" accept="image/*" capture="environment" style={{ display: 'none' }} onChange={handleImageChange} />
+            <input type="file" id="galleryInput" accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} ref={fileInputRef} />
           </div>
 
-          <button type="submit">Guardar cambios</button>
+          {editable ? (
+            <button type="button" onClick={() => setShowConfirm(true)}>Guardar cambios</button>
+          ) : (
+            <button type="button" onClick={enableEdit}>Editar información</button>
+          )}
         </form>
       </div>
     </div>

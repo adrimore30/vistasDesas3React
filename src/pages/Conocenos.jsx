@@ -13,26 +13,20 @@ const Conocenos = () => {
     return (
         <div>
             {/* Sección Hero */}
-            <section className="hero-section">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-5 text-center text-lg-start">
-                            <img src={kodelamd} alt="Kodelamd" />
-                        </div>
-                        <div className="col-lg-7 text-center text-lg-start">
-                            <h1 className="display-4 fw-bold">Conócenos</h1>
-                            <div className="bg-primary mb-4" style={{ width: '80px', height: '4px' }}></div>
-                            <p className="lead">
-                                En KodeLAMD, somos un equipo de cinco jóvenes innovadores que han unido fuerzas para revolucionar el mundo del desarrollo de software.
-                                Nuestra pasión por la tecnología nos impulsa a crear soluciones digitales a medida que no solo cumplen, sino que superan las expectativas.
-                            </p>
-                          
-
-
-                        </div>
-                    </div>
-                </div>
-            </section>
+           <section className="hero-section">
+        <div className="hero-container">
+          <div className="hero-logo">
+            <img src={kodelamd} alt="Kodelamd" />
+          </div>
+          <div className="hero-text">
+            <h1>Conócenos</h1>
+            <div className="divider"></div>
+            <p>
+              En KodeLAMD, somos un equipo de cinco jóvenes innovadores que han unido fuerzas para revolucionar el mundo del desarrollo de software. Nuestra pasión por la tecnología nos impulsa a crear soluciones digitales a medida que no solo cumplen, sino que superan las expectativas.
+            </p>
+          </div>
+        </div>
+      </section>
 
             {/* Sección "Quiénes Somos" */}
             <section id="quienes-somos" className="quienes-somos-section">
@@ -54,6 +48,11 @@ const Conocenos = () => {
                             icon="fas fa-lightbulb" 
                             description="Cada miembro de nuestro equipo aporta habilidades únicas, creando una sinergia que nos permite abordar cualquier reto con confianza y ofrecerte soluciones personalizadas." 
                         />
+                       <Card 
+                            title="Calidad" 
+                            icon="fas fa-medal" 
+                            description= "Nos comprometemos a entregar soluciones impecables, donde cada detalle refleje nuestro alto estándar de calidad, teniendo en cuenta normatividad actual"
+                            />
                     </div>
                 </div>
             </section>
@@ -75,7 +74,7 @@ const Conocenos = () => {
                             title="Visión" 
                             icon="fas fa-binoculars" 
                             lead="Ser pioneros en el desarrollo de software"
-                            description="Nuestra visión es destacarnos por nuestra creatividad, agilidad y capacidad para anticipar las tendencias tecnológicas del futuro. Aspiramos a dejar una huella significativa en el ecosistema digital, estableciendo alianzas estratégicas que impulsen la transformación digital y contribuyan al avance tecnológico de nuestra comunidad."
+                            description=" Nuestra visión es destacarnos por nuestra creatividad, agilidad y capacidad para anticipar las tendencias tecnológicas del futuro. Aspiramos a dejar una huella significativa en el ecosistema digital, estableciendo alianzas estratégicas que impulsen la transformación digital y contribuyan al avance tecnológico de nuestra comunidad."
                         />
                     </div>
                 </div>
@@ -239,4 +238,3 @@ const TeamMemberCard = ({ image, name, role, description, socialLinks }) => (
 );
 
 export default Conocenos;
-

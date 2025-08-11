@@ -1,273 +1,300 @@
-/* ===========================
-   Variables y Estilos Globales
-=========================== */
+/* ===============  VARIABLES GLOBALES  =============== */
 :root {
-    --primary-color: #3B5B8A;
-    --primary-dark: #000000;
-    --secondary-color: #f8ec3b;
-    --secondary-hover: #2bd600;
-    --light-bg: #F9FAFB;
-    --card-bg: #ffffff;
-    --text-dark: #333;
-    --text-light: #fff;
-    --muted-text: #555;
-    --card-radius: 12px;
-    --transition-fast: 0.3s ease;
-    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --primary-color: #3B5B8A;
+  --primary-dark: #000000;
+  --secondary-color: #f8ec3b;
+  --secondary-hover: #2bd600;
+
+  --light-bg: #F9FAFB;
+  --card-bg: #ffffff;
+  --text-dark: #333;
+  --text-light: #fff;
+  --muted-text: #555;
+
+  --radius: 12px;
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --transition-fast: 0.3s ease;
+}
+
+/* ===============  RESET BÁSICO  =============== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    margin: 0;
-    padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
 }
 
+/* ===============  UTILIDADES  =============== */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
-/* ===========================
-   Hero Section
-=========================== */
+/* ===============  HERO SECTION  =============== */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: var(--text-light);
-    padding: 60px 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  padding: clamp(60px, 10vw, 100px) 0;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 5vw, 100px); /* espacio responsivo */
+  padding: 0 16px;
+}
+
+.hero-logo {
+  flex: 0 0 450px; /*tamaño del logo de kodelamd*/
+}
+
+.hero-logo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero-text h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text .divider {
+  width: 80px;
+  height: 4px;
+  background: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===============  RESPONSIVE  =============== */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
     text-align: center;
+    gap: 32px;
+  }
+
+  .hero-logo {
+    flex: none;
+    max-width: 200px;
+  }
+
+  .hero-text {
+    flex: none;
+    padding: 0 12px;
+  }
+
+  .hero-text .divider {
+    margin: 0 auto 1rem;
+  }
 }
 
-.hero-section img {
-    max-width: 85%;
-    height: auto;
-    border-radius: var(--card-radius);
-    box-shadow: var(--shadow-soft);
-}
-
-.hero-section h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.hero-section .lead {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 25px;
-}
-
-/* ===========================
-   Botones
-=========================== */
-.btn-primary {
-    width: auto;
-    padding: 12px 18px;
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
-    background-color: var(--secondary-color);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: var(--shadow-soft);
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-hover);
-    transform: scale(0.98);
-}
-
-/* ===========================
-   Quiénes Somos
-=========================== */
+/* ===============  QUIÉNES SOMOS  =============== */
 .quienes-somos-section {
-    padding: 60px 0;
-    background-color: var(--light-bg);
-    text-align: center;
+  padding: 60px 0;
+  background-color: var(--light-bg);
+  text-align: center;
 }
 
 .quienes-somos-section h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .quienes-somos-section .lead {
-    font-size: 1.1rem;
-    color: var(--muted-text);
+  font-size: 1.1rem;
+  color: var(--muted-text);
 }
 
-/* Imagen siempre centrada */
-.quienes-somos-section .col-lg-5 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.quienes-somos-section .col-lg-5 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ===========================
-   Cards
-=========================== */
+/* ===============  CARDS  =============== */
 .card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: var(--card-radius);
-    box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    max-width: 300px; /* Reducimos tamaño */
-    margin: auto;
-    text-align: center;
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  max-width: 300px;
+  margin: auto;
+  text-align: left;
+  color: #000000;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  
 }
 
 .card h3 {
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  color: #000000b5;
 }
 
 .card p {
-    color: var(--muted-text);
-    font-size: 0.95rem;
+  color: var(--muted-text);
+  font-size: 0.95rem;
 }
 
 .icon-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 1.5rem;
 }
 
-/* ===========================
-   Misión y Visión
-=========================== */
+/* ===============  MISIÓN / VISIÓN  =============== */
 .philosophy-section {
-    padding: 60px 0;
-    background-color: var(--primary-dark);
-    color: var(--text-light);
-    text-align: center;
+  padding: 60px 0;
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  text-align: center;
 }
 
 .philosophy-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
 }
 
 .philosophy-section .lead {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.85);
+  color: #000000; 
+  font-weight: 600;
+  
 }
 
-/* ===========================
-   Equipo
-=========================== */
+/* ===============  EQUIPO  =============== */
 .team-section {
-    padding: 60px 0;
-    background-color: var(--light-bg);
+  padding: 60px 0;
+  background-color: var(--light-bg);
 }
 
 .team-section h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .team-card {
-    background: var(--card-bg);
-    border-radius: var(--card-radius);
-    overflow: hidden;
-    position: relative;
-    max-width: 250px; /* Cards más pequeñas */
-    margin: auto;
-    box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  max-width: 330px;
+  margin: auto;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .team-image-container img {
-    width: 100%;
-    height: auto;
-    transition: transform var(--transition-fast);
+  width: 100%;
+  height: auto;
+  transition: transform var(--transition-fast);
 }
 
 .team-image-container:hover img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .team-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-fast);
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
 
 .team-card:hover .team-overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .team-overlay .btn {
-    background-color: var(--text-light);
-    color: var(--primary-color);
-    border-radius: 50%;
-    padding: 8px;
-    margin: 0 5px;
-    transition: background-color var(--transition-fast);
+  background-color: var(--text-light);
+  color: var(--primary-color);
+  border-radius: 50%;
+  padding: 8px;
+  margin: 0 5px;
+  transition: background-color var(--transition-fast);
 }
 
 .team-overlay .btn:hover {
-    background-color: #FFD700;
+  background-color: #FFD700;
 }
 
-/* ===========================
-   Responsividad
-=========================== */
-@media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2.2rem;
-    }
-
-    .card, .team-card {
-        max-width: 90%;
-    }
-
-    .quienes-somos-section h2,
-    .philosophy-section h2,
-    .team-section h2 {
-        font-size: 1.8rem;
-    }
+/* ===============  CTA  =============== */
+.cta-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--alert-orange) 0%, var(--emergency-red) 100%);
+  color: white;
+  text-align: center;
 }
 
-@media (min-width: 769px) {
-    .team-card {
-        flex: 1 1 calc(25% - 20px);
-        margin: 10px;
-    }
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-light {
+background-color: white;
+  color: var(--emergency-red);
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-light:hover {
+  background: var(--secondary-color);
 }

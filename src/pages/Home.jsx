@@ -72,55 +72,71 @@ const Home = () => {
       </section>
 
       {/* Sección de tipos de desastres */}
-      <section className="disaster-types-section">
+     <section className="disaster-report-section">
   <div className="section-container">
-    <h2 className="section-title">TIPOS DE DESASTRES QUE MONITOREAMOS</h2>
-    <div className="disaster-logos">
-      
+    <div className="report-header">
+      <h2 className="report-main-title">¿VES UNA EMERGENCIA?</h2>
+      <p className="report-subtitle">¡REPÓRTALA AHORA! Tu alerta puede salvar vidas</p>
+      <div className="urgency-indicator">
+        <span className="pulse-dot"></span>
+        <span className="urgency-text">CADA SEGUNDO CUENTA</span>
+      </div>
+    </div>
+    
+    <div className="disaster-report-grid">
       {/* Derrumbe → Defensa Civil */}
-      <Link to="/chat?chat=defensa-civil" className="disaster-item">
-        <div className="disaster-image-container">
-          <img src={derrumbe} alt="Derrumbe" className="disaster-image" />
+      <Link to="/chat?chat=defensa-civil" className="report-button derrumbe-btn">
+        <div className="report-icon-container">
+          <img src={derrumbe} alt="Derrumbe" className="report-icon" />
         </div>
-        <div className="disaster-content">
-          <h3 className="disaster-name">Derrumbe</h3>
-          <p className="disaster-desc">Monitoreo de zonas de riesgo</p>
+        <div className="report-content">
+          <h3 className="report-name">REPORTAR DERRUMBE</h3>
+          <p className="report-action">Zonas de riesgo • Deslizamientos</p>
+          <div className="report-arrow">→</div>
         </div>
       </Link>
 
       {/* Incendio → Bomberos */}
-      <Link to="/chat?chat=bomberos" className="disaster-item">
-        <div className="disaster-image-container">
-          <img src={incendio} alt="Incendio" className="disaster-image" />
+      <Link to="/chat?chat=bomberos" className="report-button incendio-btn">
+        <div className="report-icon-container">
+          <img src={incendio} alt="Incendio" className="report-icon" />
         </div>
-        <div className="disaster-content">
-          <h3 className="disaster-name">Incendio</h3>
-          <p className="disaster-desc">Detección temprana de focos</p>
+        <div className="report-content">
+          <h3 className="report-name">REPORTAR INCENDIO</h3>
+          <p className="report-action">Fuego • Humo • Estructuras</p>
+          <div className="report-arrow">→</div>
         </div>
       </Link>
 
       {/* Tormenta → Defensa Civil */}
-      <Link to="/chat?chat=defensa-civil" className="disaster-item">
-        <div className="disaster-image-container">
-          <img src={tormenta} alt="Tormenta" className="disaster-image" />
+      <Link to="/chat?chat=defensa-civil" className="report-button tormenta-btn">
+        <div className="report-icon-container">
+          <img src={tormenta} alt="Tormenta" className="report-icon" />
         </div>
-        <div className="disaster-content">
-          <h3 className="disaster-name">Tormenta</h3>
-          <p className="disaster-desc">Alertas meteorológicas</p>
-        </div>
-      </Link>
-
-      {/* Inundación → UDGR y también UNGR */}
-      <Link to="/chat?chat=udgr" className="disaster-item">
-        <div className="disaster-image-container">
-          <img src={inundacion} alt="Inundación" className="disaster-image" />
-        </div>
-        <div className="disaster-content">
-          <h3 className="disaster-name">Inundación</h3>
-          <p className="disaster-desc">Niveles de ríos y quebradas</p>
+        <div className="report-content">
+          <h3 className="report-name">REPORTAR TORMENTA</h3>
+          <p className="report-action">Clima severo • Granizo • Vientos</p>
+          <div className="report-arrow">→</div>
         </div>
       </Link>
 
+      {/* Inundación → UDGR */}
+      <Link to="/chat?chat=udgr" className="report-button inundacion-btn">
+        <div className="report-icon-container">
+          <img src={inundacion} alt="Inundación" className="report-icon" />
+        </div>
+        <div className="report-content">
+          <h3 className="report-name">REPORTAR INUNDACIÓN</h3>
+          <p className="report-action">Ríos • Calles • Desbordamientos</p>
+          <div className="report-arrow">→</div>
+        </div>
+      </Link>
+    </div>
+
+    <div className="emergency-footer">
+      <p className="emergency-note">
+        <strong>🚨 EMERGENCIA MÉDICA:</strong> Marca <strong>123</strong> inmediatamente
+      </p>
     </div>
   </div>
 </section>

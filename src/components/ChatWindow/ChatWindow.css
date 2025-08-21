@@ -49,6 +49,7 @@
   padding: 15px;
   border-top: 1px solid #333;
   background-color: #2a2a2a;
+  gap: 10px;
 }
 
 .chat-input input {
@@ -59,7 +60,6 @@
   outline: none;
   background-color: #444;
   color: white;
-  margin-right: 10px;
 }
 
 .chat-input button {
@@ -71,8 +71,23 @@
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-input button:hover {
   background-color: #1bd82aab;
+}
+
+.location-btn {
+  background-color: #444;
+  color: white;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
 }

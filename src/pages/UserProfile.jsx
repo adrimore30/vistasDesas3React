@@ -49,10 +49,10 @@ const UserProfile = () => {
   /* Datos mock */
   useEffect(() => {
     const mockData = {
-      nombre: 'Elynn',
-      apellido: 'Lee',
-      email: 'michelle.@sada.exa',
-      telefono: '30122359878',
+      nombre: 'Michelle',
+      apellido: 'Jimenez',
+      email: 'michelle@gmail.com',
+      telefono: '3012236302',
       direccion: 'Morales',
       vereda: 'Vereda San Diego',
       foto: null,
